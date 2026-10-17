@@ -1,0 +1,239 @@
+{
+  "profiles": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "full_name": "Chef Rajesh Kumar",
+      "email": "rajesh@grandpalace.com",
+      "phone": "+91 98765 43210",
+      "avatar_url": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=400&q=80",
+      "address": "Grand Palace Hotel, MG Road, Bengaluru, Karnataka 560001",
+      "organization_name": "Grand Palace Hotel & Banquets",
+      "active_role": "donor",
+      "created_at": "2026-09-17T09:54:46.823Z",
+      "updated_at": "2026-10-17T09:54:46.824Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    },
+    {
+      "id": "22222222-2222-2222-2222-222222222222",
+      "full_name": "Priya Sharma",
+      "email": "priya@artisanbakehouse.com",
+      "phone": "+91 98234 56789",
+      "avatar_url": "https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=400&q=80",
+      "address": "Artisan Bakehouse, 12th Main, Indiranagar, Bengaluru 560038",
+      "organization_name": "Artisan Bakehouse & Cafe",
+      "active_role": "donor",
+      "created_at": "2026-09-27T09:54:46.824Z",
+      "updated_at": "2026-10-17T09:54:46.824Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    },
+    {
+      "id": "33333333-3333-3333-3333-333333333333",
+      "full_name": "Anand Verma",
+      "email": "anand@hopefoundation.org",
+      "phone": "+91 91234 56780",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "address": "Hope Care Shelter, 4th Cross, Koramangala, Bengaluru 560034",
+      "organization_name": "Hope Community Foundation & Shelter",
+      "active_role": "receiver",
+      "created_at": "2026-09-22T09:54:46.824Z",
+      "updated_at": "2026-10-17T09:54:46.824Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    },
+    {
+      "id": "44444444-4444-4444-4444-444444444444",
+      "full_name": "Sister Mary Thomas",
+      "email": "mary@stjudeshelter.org",
+      "phone": "+91 99887 76655",
+      "avatar_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+      "address": "St. Jude Children Home, Austin Town, Bengaluru 560047",
+      "organization_name": "St. Jude Orphanage & Care Center",
+      "active_role": "receiver",
+      "created_at": "2026-10-02T09:54:46.824Z",
+      "updated_at": "2026-10-17T09:54:46.824Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    },
+    {
+      "id": "usr-1792231154286-o42hq",
+      "full_name": "jahnavi chintam",
+      "email": "jahnavichintam0@gmail.com",
+      "phone": "7995070038",
+      "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=jahnavi%20chintam",
+      "address": "sri sainath nagar , rangampeta ,tirupati",
+      "organization_name": "Sri vidyanikethan school",
+      "active_role": "receiver",
+      "created_at": "2026-10-17T09:59:14.286Z",
+      "updated_at": "2026-10-17T10:47:41.283Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    },
+    {
+      "id": "usr-1792235286987-mnun9",
+      "full_name": "jahnavi",
+      "email": "janu@gmail.com",
+      "phone": "9154888251",
+      "avatar_url": "https://api.dicebear.com/7.x/initials/svg?seed=jahnavi",
+      "address": "chandragiri,tirupati",
+      "organization_name": "orphanage",
+      "active_role": "receiver",
+      "created_at": "2026-10-17T11:08:06.987Z",
+      "updated_at": "2026-10-17T11:08:06.987Z",
+      "phone_contact_opt_in": true,
+      "whatsapp_enabled": true
+    }
+  ],
+  "user_roles": [
+    {
+      "id": "r1",
+      "user_id": "11111111-1111-1111-1111-111111111111",
+      "role": "donor",
+      "is_active": true,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "r2",
+      "user_id": "22222222-2222-2222-2222-222222222222",
+      "role": "donor",
+      "is_active": true,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "r3",
+      "user_id": "33333333-3333-3333-3333-333333333333",
+      "role": "receiver",
+      "is_active": true,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "r4",
+      "user_id": "44444444-4444-4444-4444-444444444444",
+      "role": "receiver",
+      "is_active": true,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "r5",
+      "user_id": "11111111-1111-1111-1111-111111111111",
+      "role": "receiver",
+      "is_active": false,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "r6",
+      "user_id": "33333333-3333-3333-3333-333333333333",
+      "role": "donor",
+      "is_active": false,
+      "created_at": "2026-10-17T09:54:46.824Z"
+    },
+    {
+      "id": "role-1792231154290-rq5j",
+      "user_id": "usr-1792231154286-o42hq",
+      "role": "donor",
+      "is_active": true,
+      "created_at": "2026-10-17T09:59:14.290Z"
+    },
+    {
+      "id": "role-1792231608738-ya8g",
+      "user_id": "usr-1792231154286-o42hq",
+      "role": "receiver",
+      "is_active": true,
+      "created_at": "2026-10-17T10:06:48.738Z"
+    },
+    {
+      "id": "role-1792235286991-dld2",
+      "user_id": "usr-1792235286987-mnun9",
+      "role": "receiver",
+      "is_active": true,
+      "created_at": "2026-10-17T11:08:06.991Z"
+    }
+  ],
+  "donations": [
+    {
+      "donor_id": "usr-1792231154286-o42hq",
+      "food_name": "Biryani",
+      "category": "Cooked Meals",
+      "description": "chicken biryani along with some raita",
+      "image_urls": [
+        "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80"
+      ],
+      "total_quantity": 10,
+      "quantity_unit": "Kilograms (kg)",
+      "preparation_time": "2026-10-17T05:30:00.000Z",
+      "expiry_time": "2026-10-17T14:30:00.000Z",
+      "pickup_address": "Current GPS Location (14.0561, 78.7462), Bengaluru",
+      "latitude": 14.0561,
+      "longitude": 78.7462,
+      "pickup_instructions": "ping 7995070038 after arrival",
+      "food_safety_confirmed": true,
+      "id": "don-1792231384667-kqmjd",
+      "available_quantity": 0,
+      "status": "booked",
+      "created_at": "2026-10-17T10:03:04.667Z",
+      "updated_at": "2026-10-17T11:08:24.524Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-1792235304524-mctte",
+      "donation_id": "don-1792231384667-kqmjd",
+      "receiver_id": "usr-1792235286987-mnun9",
+      "donor_id": "usr-1792231154286-o42hq",
+      "quantity_reserved": 10,
+      "booking_status": "confirmed",
+      "booking_reference": "FB-20261017-5Q88",
+      "receiver_notes": null,
+      "tracking_stage": "confirmed",
+      "estimated_arrival_minutes": 30,
+      "tracking_timeline": [
+        {
+          "stage": "confirmed",
+          "label": "Booking Confirmed by Receiver",
+          "timestamp": "2026-10-17T11:08:24.524Z",
+          "note": "Reservation created and awaiting pickup",
+          "updated_by_role": "receiver"
+        }
+      ],
+      "booked_at": "2026-10-17T11:08:24.524Z",
+      "updated_at": "2026-10-17T11:08:24.524Z",
+      "completed_at": null
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1792235304524-2",
+      "user_id": "usr-1792231154286-o42hq",
+      "title": "New Food Booking Received",
+      "message": "orphanage reserved 10 Kilograms (kg) of \"Biryani\". Ref: FB-20261017-5Q88",
+      "notification_type": "booking_received",
+      "related_donation_id": "don-1792231384667-kqmjd",
+      "related_booking_id": "bk-1792235304524-mctte",
+      "is_read": false,
+      "created_at": "2026-10-17T11:08:24.524Z"
+    },
+    {
+      "id": "notif-1792235304524-1",
+      "user_id": "usr-1792235286987-mnun9",
+      "title": "Booking Confirmed!",
+      "message": "You successfully reserved 10 Kilograms (kg) of \"Biryani\". Ref: FB-20261017-5Q88",
+      "notification_type": "booking_confirmed",
+      "related_donation_id": "don-1792231384667-kqmjd",
+      "related_booking_id": "bk-1792235304524-mctte",
+      "is_read": false,
+      "created_at": "2026-10-17T11:08:24.524Z"
+    },
+    {
+      "id": "notif-1792231384667-2cf7",
+      "user_id": "usr-1792231154286-o42hq",
+      "title": "Donation Listed Successfully",
+      "message": "Your food listing \"Biryani\" (10 Kilograms (kg)) is now live for receivers.",
+      "notification_type": "donation_created",
+      "related_donation_id": "don-1792231384667-kqmjd",
+      "related_booking_id": null,
+      "is_read": true,
+      "created_at": "2026-10-17T10:03:04.667Z"
+    }
+  ]
+}

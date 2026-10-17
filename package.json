@@ -1,0 +1,25 @@
+{
+  "name": "food-bridge",
+  "version": "1.0.0",
+  "description": "Food Bridge — Modern Food Donation & Sharing Platform",
+  "scripts": {
+    "dev:server": "npm.cmd --prefix server run dev",
+    "dev:client": "npm.cmd --prefix client run dev",
+    "build": "npm.cmd --prefix server run build && npm.cmd --prefix client run build",
+    "test": "npm.cmd --prefix server test"
+  },
+  "keywords": [
+    "food-donation",
+    "surplus-food",
+    "zero-waste",
+    "react",
+    "vite",
+    "nodejs",
+    "express",
+    "typescript",
+    "supabase",
+    "google-maps"
+  ],
+  "author": "Food Bridge Initiative",
+  "license": "MIT"
+}
