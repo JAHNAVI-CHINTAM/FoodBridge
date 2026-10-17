@@ -88,32 +88,44 @@ export const LandingPage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fafaf9]">
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-gradient-to-b from-brand-50/60 via-[#fafaf9] to-[#fafaf9]">
-        {/* Glow blur background circles */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/3 right-10 w-72 h-72 bg-warm-200/40 rounded-full blur-3xl pointer-events-none" />
+      {/* 1. HERO SECTION (Dark Themed Minimal Food Background) */}
+      <section className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-36 bg-slate-950 text-white">
+        {/* Dark themed minimal food background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity scale-105 transition-transform duration-1000"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=2000&q=80')`
+          }}
+        />
+
+        {/* Cinematic dark gradients for perfect contrast & readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60" />
+
+        {/* Ambient subtle glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/3 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 text-center lg:text-left">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm border border-emerald-200">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm border border-emerald-500/30 backdrop-blur-md">
+                <Sparkles className="w-4 h-4 text-emerald-400" />
                 <span>Zero Hunger • Zero Waste Initiative</span>
               </div>
 
               {/* Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-6">
                 Share Food.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-700">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300">
                   Spread Hope.
                 </span>
               </h1>
 
               {/* Description */}
-              <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-normal">
                 Food Bridge connects hotels, restaurants, bakeries, and catering events having surplus food directly with verified shelters, orphanages, and community kitchens in real time. 100% free, fresh, and dignity-first.
               </p>
 
@@ -121,7 +133,7 @@ export const LandingPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
                   to="/login?role=donor"
-                  className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-extrabold text-white bg-gradient-to-r from-brand-600 to-emerald-700 hover:from-brand-700 hover:to-emerald-800 shadow-elevated shadow-brand-600/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 group"
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-extrabold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-xl shadow-emerald-950/40 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 group"
                 >
                   <PlusCircle className="w-5 h-5 text-white" />
                   <span>Donate Food</span>
@@ -130,26 +142,26 @@ export const LandingPage: React.FC = () => {
 
                 <Link
                   to="/login?role=receiver"
-                  className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-extrabold text-slate-800 bg-white hover:bg-slate-50 border-2 border-slate-200/90 shadow-card hover:border-brand-400 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 text-center"
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-extrabold text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-card backdrop-blur-md transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 text-center"
                 >
-                  <Search className="w-5 h-5 text-brand-600" />
+                  <Search className="w-5 h-5 text-emerald-400" />
                   <span>Find Food</span>
                 </Link>
               </div>
 
               {/* Trust Indicators - Real Live Database Counts */}
-              <div className="mt-10 pt-8 border-t border-slate-200/70 grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div className="mt-10 pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
                 <div>
-                  <p className="text-2xl font-black text-slate-900">{stats.activeDonationsCount}</p>
-                  <p className="text-xs text-slate-500 font-medium">Active Food Listings</p>
+                  <p className="text-2xl font-black text-white">{stats.activeDonationsCount}</p>
+                  <p className="text-xs text-slate-400 font-medium">Active Food Listings</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-black text-brand-700">{stats.donorsCount}</p>
-                  <p className="text-xs text-slate-500 font-medium">Verified Food Donors</p>
+                  <p className="text-2xl font-black text-emerald-400">{stats.donorsCount}</p>
+                  <p className="text-xs text-slate-400 font-medium">Verified Food Donors</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-black text-warm-600">{stats.receiversCount}</p>
-                  <p className="text-xs text-slate-500 font-medium">Verified Receivers</p>
+                  <p className="text-2xl font-black text-amber-400">{stats.receiversCount}</p>
+                  <p className="text-xs text-slate-400 font-medium">Verified Receivers</p>
                 </div>
               </div>
             </div>
@@ -160,10 +172,9 @@ export const LandingPage: React.FC = () => {
                 {availablePreview.length > 0 ? (
                   (() => {
                     const featured = availablePreview[0];
-                    const hoursLeft = Math.max(1, Math.round((new Date(featured.expiry_time).getTime() - Date.now()) / (3600 * 1000)));
                     return (
                       <div 
-                        className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white cursor-pointer group"
+                        className="rounded-3xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-900/90 backdrop-blur-xl cursor-pointer group"
                         onClick={() => navigate('/login?role=receiver')}
                       >
                         <img
@@ -173,18 +184,18 @@ export const LandingPage: React.FC = () => {
                         />
                         <div className="p-5">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-full">
+                            <span className="text-xs font-bold text-emerald-300 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-1 rounded-full">
                               {featured.category} • Untouched
                             </span>
-                            <span className="text-xs font-semibold text-slate-500">
+                            <span className="text-xs font-semibold text-slate-400">
                               {featured.available_quantity} {featured.quantity_unit} Available
                             </span>
                           </div>
-                          <h3 className="font-bold text-slate-800 text-lg group-hover:text-brand-700 transition">
+                          <h3 className="font-bold text-white text-lg group-hover:text-emerald-400 transition">
                             {featured.food_name}
                           </h3>
-                          <p className="text-xs text-slate-500 flex items-center mt-1">
-                            <MapPin className="w-3.5 h-3.5 text-brand-600 mr-1 flex-shrink-0" />
+                          <p className="text-xs text-slate-400 flex items-center mt-1">
+                            <MapPin className="w-3.5 h-3.5 text-emerald-400 mr-1 flex-shrink-0" />
                             <span className="truncate">{featured.pickup_address}</span>
                           </p>
                         </div>
@@ -192,35 +203,35 @@ export const LandingPage: React.FC = () => {
                     );
                   })()
                 ) : (
-                  <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white p-8 text-center">
-                    <Utensils className="w-16 h-16 text-brand-600 mx-auto mb-4" />
-                    <h3 className="font-bold text-slate-800 text-lg">Platform Ready for Listings</h3>
-                    <p className="text-xs text-slate-500 mt-1">Register as a donor to list fresh surplus meals.</p>
+                  <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-900/90 backdrop-blur-xl p-8 text-center">
+                    <Utensils className="w-16 h-16 text-emerald-400 mx-auto mb-4" />
+                    <h3 className="font-bold text-white text-lg">Platform Ready for Listings</h3>
+                    <p className="text-xs text-slate-400 mt-1">Register as a donor to list fresh surplus meals.</p>
                   </div>
                 )}
 
                 {/* Floating Card: Live Actual Impact */}
-                <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-elevated border border-slate-200/80 max-w-[240px]">
+                <div className="absolute -bottom-6 -left-6 bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-elevated border border-slate-700/80 max-w-[240px]">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-emerald-950 border border-emerald-800/60 flex items-center justify-center text-emerald-400 flex-shrink-0">
                       <CheckCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-slate-800">
+                      <p className="text-xs font-bold text-white">
                         {stats.mealsShared > 0 ? `${stats.mealsShared} Meals Reserved` : `${stats.activeDonationsCount} Live Listings`}
                       </p>
-                      <p className="text-[10px] text-slate-500">Live Database Verified</p>
+                      <p className="text-[10px] text-slate-400">Live Database Verified</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Floating Card: Freshness Timer */}
                 {availablePreview.length > 0 && (
-                  <div className="absolute -top-4 -right-4 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-elevated border border-slate-200/80 flex items-center space-x-2">
-                    <Clock className="w-4 h-4 text-warm-600 animate-spin-slow" />
+                  <div className="absolute -top-4 -right-4 bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-elevated border border-slate-700/80 flex items-center space-x-2">
+                    <Clock className="w-4 h-4 text-amber-400 animate-spin-slow" />
                     <div>
                       <p className="text-[10px] text-slate-400 font-medium">Pickup Window</p>
-                      <p className="text-xs font-black text-slate-800">
+                      <p className="text-xs font-black text-white">
                         Valid next {Math.max(1, Math.round((new Date(availablePreview[0].expiry_time).getTime() - Date.now()) / (3600 * 1000)))}h
                       </p>
                     </div>
