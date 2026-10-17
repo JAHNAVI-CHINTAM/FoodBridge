@@ -232,7 +232,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* 2. REAL IMPACT STATISTICS */}
-      <section id="impact" className="py-20 bg-slate-950/60 border-y border-slate-800/80 backdrop-blur-md relative z-10">
+      <section id="impact" className="py-20 bg-slate-950/30 border-y border-slate-800/80 backdrop-blur-md relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">Verified Real-Time Impact</h2>
@@ -412,7 +412,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* 4. LIVE AVAILABLE FOOD PREVIEW */}
-      <section id="available-food" className="py-20 bg-slate-950/60 border-t border-slate-800/80 backdrop-blur-md relative z-10">
+      <section id="available-food" className="py-20 bg-slate-950/30 border-t border-slate-800/80 backdrop-blur-md relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
             <div>
@@ -535,7 +535,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* 6. CONTACT SECTION */}
-      <section id="contact" className="py-20 bg-slate-950/60 border-t border-slate-800/80 backdrop-blur-md relative z-10">
+      <section id="contact" className="py-20 bg-slate-950/30 border-t border-slate-800/80 backdrop-blur-md relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">Get in Touch</h2>

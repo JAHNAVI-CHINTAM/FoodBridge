@@ -46,10 +46,14 @@ function AppRoutes() {
     <div className="relative min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
       {/* Universal Fixed Dark-Themed Minimal Food Photography Background */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity pointer-events-none z-0"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=2400&q=80')` }}
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+        style={{ 
+          backgroundImage: `url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=2400&q=80')`,
+          filter: 'brightness(0.55) contrast(1.05)'
+        }}
       />
-      <div className="fixed inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950 pointer-events-none z-0" />
+      {/* Subtle dark vignette overlay to preserve high contrast and text readability */}
+      <div className="fixed inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/25 to-slate-950/55 pointer-events-none z-0" />
 
       {/* Main Content Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">

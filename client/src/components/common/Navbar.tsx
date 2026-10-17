@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
   const isLanding = location.pathname === '/';
 
   return (
-    <header className="sticky top-0 z-40 w-full transition-all duration-200 bg-slate-950/85 border-b border-slate-800/80 text-white backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full transition-all duration-200 bg-slate-950/65 border-b border-slate-800/80 text-white backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group">
