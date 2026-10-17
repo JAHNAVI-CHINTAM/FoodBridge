@@ -21,6 +21,24 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '10mb' }));
 
+// Root status endpoint
+app.get('/', (_req, res) => {
+  res.json({
+    name: 'Food Bridge API Server',
+    status: 'online',
+    message: 'Welcome to Food Bridge Food Donation Platform API',
+    endpoints: {
+      health: '/api/health',
+      donations: '/api/donations',
+      stats: '/api/stats',
+      bookings: '/api/bookings',
+      notifications: '/api/notifications',
+      auth: '/api/auth'
+    },
+    version: '1.0.0'
+  });
+});
+
 // Health check
 app.get('/api/health', (_req, res) => {
   const isSupabaseConfigured = Boolean(
