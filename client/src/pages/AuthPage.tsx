@@ -125,22 +125,22 @@ export const AuthPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+    <div className="min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-center relative z-10">
       <div className="max-w-xl w-full mx-auto">
         {/* Header Branding */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-3 group mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 to-emerald-700 flex items-center justify-center text-white shadow-md shadow-brand-600/20 group-hover:scale-105 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-xl shadow-emerald-950/40 group-hover:scale-105 transition-transform">
               <HeartHandshake className="w-7 h-7" />
             </div>
-            <span className="text-2xl font-black tracking-tight text-slate-900">
-              Food<span className="text-warm-500">Bridge</span>
+            <span className="text-2xl font-black tracking-tight text-white">
+              Food<span className="text-amber-400">Bridge</span>
             </span>
           </Link>
-          <h2 className="text-2xl font-extrabold text-slate-900">
+          <h2 className="text-2xl font-extrabold text-white">
             {authMode === 'login' ? 'Sign in to your account' : 'Join the Food Bridge community'}
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-400 mt-1">
             Choose your account type below to access your dedicated dashboard
           </p>
         </div>
@@ -154,24 +154,24 @@ export const AuthPage: React.FC = () => {
               setSelectedRole('donor');
               setErrorMsg(null);
             }}
-            className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 relative ${
+            className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 relative backdrop-blur-md ${
               selectedRole === 'donor'
-                ? 'border-brand-600 bg-brand-50/60 shadow-elevated ring-2 ring-brand-500/20'
-                : 'border-slate-200 bg-white hover:border-slate-300 shadow-sm'
+                ? 'border-emerald-500 bg-emerald-950/50 shadow-xl ring-2 ring-emerald-500/20 text-white'
+                : 'border-slate-800 bg-slate-900/70 hover:border-slate-700 text-white shadow-lg'
             }`}
           >
             {selectedRole === 'donor' && (
-              <div className="absolute top-3 right-3 text-brand-600">
-                <CheckCircle2 className="w-5 h-5 fill-brand-600 text-white" />
+              <div className="absolute top-3 right-3 text-emerald-400">
+                <CheckCircle2 className="w-5 h-5 fill-emerald-500 text-slate-950" />
               </div>
             )}
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-              selectedRole === 'donor' ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600'
+              selectedRole === 'donor' ? 'bg-emerald-500 text-white shadow-md' : 'bg-slate-800 text-slate-400'
             }`}>
               <Building2 className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-sm text-slate-900">Donor Account</h3>
-            <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+            <h3 className="font-extrabold text-sm text-white">Donor Account</h3>
+            <p className="text-[11px] text-slate-400 mt-1 leading-snug">
               Restaurants, Hotels, Bakeries, Caterers & Supermarkets
             </p>
           </button>
@@ -183,33 +183,33 @@ export const AuthPage: React.FC = () => {
               setSelectedRole('receiver');
               setErrorMsg(null);
             }}
-            className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 relative ${
+            className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 relative backdrop-blur-md ${
               selectedRole === 'receiver'
-                ? 'border-warm-500 bg-warm-50/60 shadow-elevated ring-2 ring-warm-500/20'
-                : 'border-slate-200 bg-white hover:border-slate-300 shadow-sm'
+                ? 'border-amber-500 bg-amber-950/50 shadow-xl ring-2 ring-amber-500/20 text-white'
+                : 'border-slate-800 bg-slate-900/70 hover:border-slate-700 text-white shadow-lg'
             }`}
           >
             {selectedRole === 'receiver' && (
-              <div className="absolute top-3 right-3 text-warm-600">
-                <CheckCircle2 className="w-5 h-5 fill-warm-600 text-white" />
+              <div className="absolute top-3 right-3 text-amber-400">
+                <CheckCircle2 className="w-5 h-5 fill-amber-500 text-slate-950" />
               </div>
             )}
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-              selectedRole === 'receiver' ? 'bg-warm-500 text-white' : 'bg-slate-100 text-slate-600'
+              selectedRole === 'receiver' ? 'bg-amber-500 text-white shadow-md' : 'bg-slate-800 text-slate-400'
             }`}>
               <Users className="w-5 h-5" />
             </div>
-            <h3 className="font-extrabold text-sm text-slate-900">Receiver Account</h3>
-            <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+            <h3 className="font-extrabold text-sm text-white">Receiver Account</h3>
+            <p className="text-[11px] text-slate-400 mt-1 leading-snug">
               NGOs, Shelters, Orphanages & Community Kitchens
             </p>
           </button>
         </div>
 
         {/* 2. MAIN AUTH CARD CONTAINER */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
+        <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-slate-800/90 shadow-2xl p-6 sm:p-8">
           {/* Mode Switch Tabs (Login / Sign Up) */}
-          <div className="flex rounded-xl bg-slate-100 p-1 mb-6">
+          <div className="flex rounded-xl bg-slate-950/80 border border-slate-800 p-1 mb-6">
             <button
               type="button"
               onClick={() => {
@@ -218,8 +218,8 @@ export const AuthPage: React.FC = () => {
               }}
               className={`flex-1 py-2.5 text-xs font-bold rounded-lg transition ${
                 authMode === 'login'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900'
+                  ? 'bg-slate-800 text-white shadow-sm border border-slate-700/60'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               Log In
@@ -232,8 +232,8 @@ export const AuthPage: React.FC = () => {
               }}
               className={`flex-1 py-2.5 text-xs font-bold rounded-lg transition ${
                 authMode === 'signup'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900'
+                  ? 'bg-slate-800 text-white shadow-sm border border-slate-700/60'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               Sign Up
@@ -242,8 +242,8 @@ export const AuthPage: React.FC = () => {
 
           {/* Error Banner */}
           {errorMsg && (
-            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start space-x-2.5">
-              <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+            <div className="mb-6 p-4 rounded-xl bg-rose-950/80 border border-rose-800 text-rose-200 text-xs flex items-start space-x-2.5">
+              <AlertCircle className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5" />
               <span className="flex-1 font-medium">{errorMsg}</span>
             </div>
           )}
@@ -252,49 +252,49 @@ export const AuthPage: React.FC = () => {
           {authMode === 'login' && (
             <form onSubmit={handleLoginSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                   Email Address *
                 </label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={selectedRole === 'donor' ? 'rajesh@grandpalace.com' : 'anand@hopefoundation.org'}
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                   />
                 </div>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">
                     Password *
                   </label>
                   <button
                     type="button"
                     onClick={() => setForgotPasswordOpen(true)}
-                    className="text-xs text-brand-700 hover:underline font-semibold"
+                    className="text-xs text-emerald-400 hover:text-emerald-300 hover:underline font-semibold"
                   >
                     Forgot Password?
                   </button>
                 </div>
                 <div className="relative">
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full pl-10 pr-10 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3 text-slate-400 hover:text-slate-600"
+                    className="absolute right-3.5 top-3 text-slate-400 hover:text-white"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -307,22 +307,22 @@ export const AuthPage: React.FC = () => {
                     type="checkbox"
                     checked={rememberMe}
                     onChange={(e) => setRememberMe(e.target.checked)}
-                    className="w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300"
+                    className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-slate-700 bg-slate-950"
                   />
-                  <span className="text-xs text-slate-600 font-medium">Remember my session</span>
+                  <span className="text-xs text-slate-300 font-medium">Remember my session</span>
                 </label>
                 <span className="text-[11px] text-slate-400">
-                  Signing in as: <strong className="capitalize text-slate-700">{selectedRole}</strong>
+                  Signing in as: <strong className="capitalize text-emerald-400">{selectedRole}</strong>
                 </span>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-md transition flex items-center justify-center space-x-2 ${
+                className={`w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl transition flex items-center justify-center space-x-2 ${
                   selectedRole === 'donor'
-                    ? 'bg-brand-600 hover:bg-brand-700 shadow-brand-600/20'
-                    : 'bg-warm-500 hover:bg-warm-600 shadow-warm-500/20'
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-emerald-950/40'
+                    : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-amber-950/40'
                 } disabled:opacity-60`}
               >
                 <span>{isSubmitting ? 'Signing in...' : `Sign In to ${selectedRole === 'donor' ? 'Donor' : 'Receiver'} Portal`}</span>
@@ -335,120 +335,120 @@ export const AuthPage: React.FC = () => {
           {authMode === 'signup' && (
             <form onSubmit={handleRegisterSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                   Full Name *
                 </label>
                 <div className="relative">
-                  <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                   <input
                     type="text"
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Executive Chef or Shelter Coordinator"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                     Email Address *
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="user@organization.com"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                     Phone Number
                   </label>
                   <div className="relative">
-                    <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Phone className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                     <input
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+91 98765 43210"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                     />
                   </div>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                   Organization / Entity Name {selectedRole === 'donor' ? '(Hotel / Bakery)' : '(Shelter / NGO)'}
                 </label>
                 <div className="relative">
-                  <Building2 className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <Building2 className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                   <input
                     type="text"
                     value={organizationName}
                     onChange={(e) => setOrganizationName(e.target.value)}
                     placeholder={selectedRole === 'donor' ? 'Grand Palace Banquets' : 'Hope Children Care Home'}
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                   Address / City Landmark
                 </label>
                 <div className="relative">
-                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <MapPin className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                   <input
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="12th Main Road, Indiranagar, Bengaluru"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                     Password *
                   </label>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                     <input
                       type={showPassword ? 'text' : 'password'}
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="At least 6 chars"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                     Confirm Password *
                   </label>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
                     <input
                       type={showPassword ? 'text' : 'password'}
                       required
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Repeat password"
-                      className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                      className="w-full pl-10 pr-4 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500"
                     />
                   </div>
                 </div>
@@ -460,10 +460,10 @@ export const AuthPage: React.FC = () => {
                     type="checkbox"
                     checked={acceptTerms}
                     onChange={(e) => setAcceptTerms(e.target.checked)}
-                    className="w-4 h-4 mt-0.5 rounded text-brand-600 focus:ring-brand-500 border-slate-300"
+                    className="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 border-slate-700 bg-slate-950"
                   />
-                  <span className="text-xs text-slate-600 leading-relaxed">
-                    I agree to the Food Bridge <strong>Terms of Service</strong>, <strong>Privacy Policy</strong>, and commit to following strict <strong>Food Safety & Hygiene Standards</strong>.
+                  <span className="text-xs text-slate-300 leading-relaxed">
+                    I agree to the Food Bridge <strong className="text-white">Terms of Service</strong>, <strong className="text-white">Privacy Policy</strong>, and commit to following strict <strong className="text-white">Food Safety & Hygiene Standards</strong>.
                   </span>
                 </label>
               </div>
@@ -471,10 +471,10 @@ export const AuthPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-md transition flex items-center justify-center space-x-2 ${
+                className={`w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl transition flex items-center justify-center space-x-2 ${
                   selectedRole === 'donor'
-                    ? 'bg-brand-600 hover:bg-brand-700 shadow-brand-600/20'
-                    : 'bg-warm-500 hover:bg-warm-600 shadow-warm-500/20'
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-emerald-950/40'
+                    : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-amber-950/40'
                 } disabled:opacity-60`}
               >
                 <span>{isSubmitting ? 'Creating Account...' : `Create ${selectedRole === 'donor' ? 'Donor' : 'Receiver'} Account`}</span>
@@ -484,23 +484,23 @@ export const AuthPage: React.FC = () => {
           )}
 
           {/* Quick Evaluator Demo Logins */}
-          <div className="mt-8 pt-6 border-t border-slate-100 text-center">
+          <div className="mt-8 pt-6 border-t border-slate-800 text-center">
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-center space-x-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Instant Evaluator Demo Access</span>
             </p>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => handleQuickDemo('donor')}
-                className="py-2.5 px-3 rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-800 text-xs font-bold border border-brand-200 transition"
+                className="py-2.5 px-3 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/70 text-emerald-300 text-xs font-bold border border-emerald-800/80 transition"
               >
                 Test as Donor (Chef Rajesh)
               </button>
               <button
                 type="button"
                 onClick={() => handleQuickDemo('receiver')}
-                className="py-2.5 px-3 rounded-xl bg-warm-50 hover:bg-warm-100 text-warm-800 text-xs font-bold border border-warm-200 transition"
+                className="py-2.5 px-3 rounded-xl bg-amber-950/60 hover:bg-amber-900/70 text-amber-300 text-xs font-bold border border-amber-800/80 transition"
               >
                 Test as Receiver (Anand - NGO)
               </button>
@@ -511,10 +511,10 @@ export const AuthPage: React.FC = () => {
 
       {/* Forgot Password Modal */}
       {forgotPasswordOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
-            <h3 className="text-base font-bold text-slate-900 mb-2">Reset Password</h3>
-            <p className="text-xs text-slate-500 mb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in">
+          <div className="bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-800 relative">
+            <h3 className="text-base font-bold text-white mb-2">Reset Password</h3>
+            <p className="text-xs text-slate-400 mb-4">
               Enter your registered email address and we'll send you instructions to reset your password securely.
             </p>
             <input
@@ -522,13 +522,13 @@ export const AuthPage: React.FC = () => {
               value={forgotEmail}
               onChange={(e) => setForgotEmail(e.target.value)}
               placeholder="user@example.com"
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs mb-4 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 text-white rounded-xl text-xs mb-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
             />
             <div className="flex space-x-2">
               <button
                 type="button"
                 onClick={() => setForgotPasswordOpen(false)}
-                className="flex-1 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition"
+                className="flex-1 py-2 text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 rounded-xl transition"
               >
                 Cancel
               </button>
@@ -538,7 +538,7 @@ export const AuthPage: React.FC = () => {
                   setForgotPasswordOpen(false);
                   addToast('info', 'Password Reset Requested', 'If an account exists with this email, a reset link has been dispatched.');
                 }}
-                className="flex-1 py-2 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition"
+                className="flex-1 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition"
               >
                 Send Link
               </button>

@@ -66,20 +66,20 @@ export const DonorDashboard: React.FC = () => {
   const totalMealsDonated = donations.reduce((sum, d) => sum + Number(d.total_quantity), 0);
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent py-8 px-4 sm:px-6 lg:px-8 text-white relative z-10">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Donor Banner Header */}
-        <div className="bg-gradient-to-r from-brand-900 via-brand-800 to-emerald-900 rounded-3xl p-6 sm:p-8 text-white shadow-elevated relative overflow-hidden">
+        <div className="bg-gradient-to-r from-emerald-950/80 via-slate-900/90 to-slate-900/90 rounded-3xl p-6 sm:p-8 text-white border border-emerald-800/60 backdrop-blur-xl shadow-2xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <div className="flex items-center space-x-2 text-xs font-bold text-emerald-300 uppercase tracking-wider mb-2">
+              <div className="flex items-center space-x-2 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
                 <Building2 className="w-4 h-4" />
                 <span>{user?.organization_name || 'Food Donor Portal'}</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
                 Welcome back, {user?.full_name}
               </h1>
-              <p className="text-xs sm:text-sm text-emerald-100/90 mt-1 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
                 Thank you for reducing hunger and minimizing environmental waste by sharing surplus food.
               </p>
             </div>
@@ -87,43 +87,43 @@ export const DonorDashboard: React.FC = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => setIsAddModalOpen(true)}
-                className="px-6 py-3.5 rounded-2xl bg-white text-brand-900 font-extrabold text-xs sm:text-sm hover:bg-emerald-50 transition shadow-lg flex items-center space-x-2"
+                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold text-xs sm:text-sm transition shadow-xl shadow-emerald-950/40 flex items-center space-x-2"
               >
-                <PlusCircle className="w-4 h-4 text-brand-700" />
+                <PlusCircle className="w-4 h-4 text-white" />
                 <span>Add Food Donation</span>
               </button>
             </div>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="mt-8 pt-6 border-t border-brand-700/60 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="mt-8 pt-6 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
-              <p className="text-xs text-emerald-200">Active Listings</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{activeCount}</p>
+              <p className="text-xs text-slate-400">Active Listings</p>
+              <p className="text-xl sm:text-2xl font-black text-emerald-400 mt-0.5">{activeCount}</p>
             </div>
             <div>
-              <p className="text-xs text-emerald-200">Received Bookings</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{bookedCount}</p>
+              <p className="text-xs text-slate-400">Received Bookings</p>
+              <p className="text-xl sm:text-2xl font-black text-emerald-400 mt-0.5">{bookedCount}</p>
             </div>
             <div>
-              <p className="text-xs text-emerald-200">Expired / Archived</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{expiredCount}</p>
+              <p className="text-xs text-slate-400">Expired / Archived</p>
+              <p className="text-xl sm:text-2xl font-black text-slate-300 mt-0.5">{expiredCount}</p>
             </div>
             <div>
-              <p className="text-xs text-emerald-200">Total Units Listed</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{Math.round(totalMealsDonated)}</p>
+              <p className="text-xs text-slate-400">Total Units Listed</p>
+              <p className="text-xl sm:text-2xl font-black text-amber-400 mt-0.5">{Math.round(totalMealsDonated)}</p>
             </div>
           </div>
         </div>
 
         {/* Navigation Tabs (Donations, Booked, Expired, Profile) */}
-        <div className="flex rounded-2xl bg-white p-1.5 border border-slate-200/90 shadow-sm max-w-2xl">
+        <div className="flex rounded-2xl bg-slate-900/80 backdrop-blur-xl p-1.5 border border-slate-800/90 shadow-2xl max-w-2xl">
           <button
             onClick={() => setActiveTab('donations')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'donations'
-                ? 'bg-brand-600 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <Utensils className="w-4 h-4" />
@@ -134,8 +134,8 @@ export const DonorDashboard: React.FC = () => {
             onClick={() => setActiveTab('booked')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'booked'
-                ? 'bg-brand-600 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <PackageCheck className="w-4 h-4" />
@@ -146,8 +146,8 @@ export const DonorDashboard: React.FC = () => {
             onClick={() => setActiveTab('expired')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'expired'
-                ? 'bg-brand-600 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <CalendarClock className="w-4 h-4" />
@@ -158,8 +158,8 @@ export const DonorDashboard: React.FC = () => {
             onClick={() => setActiveTab('profile')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'profile'
-                ? 'bg-brand-600 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <User className="w-4 h-4" />

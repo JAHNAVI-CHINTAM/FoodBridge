@@ -94,33 +94,33 @@ export const ProfilePage: React.FC = () => {
   const cleanPhone = (user.phone || '').replace(/[^0-9]/g, '');
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 text-white relative z-10">
       {/* Profile Overview Card */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card">
-        <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 pb-8 border-b border-slate-100">
+      <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800/90 shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 pb-8 border-b border-slate-800">
           <img
             src={user.avatar_url || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user.full_name)}`}
             alt={user.full_name}
-            className="w-24 h-24 rounded-3xl object-cover bg-brand-50 border-2 border-brand-200 shadow-md"
+            className="w-24 h-24 rounded-3xl object-cover bg-emerald-950 border-2 border-emerald-500/50 shadow-md"
           />
 
           <div className="flex-1 text-center sm:text-left">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
-                <h1 className="text-2xl font-black text-slate-900 tracking-tight">{user.full_name}</h1>
-                <p className="text-xs text-slate-500 mt-0.5">{user.email}</p>
+                <h1 className="text-2xl font-black text-white tracking-tight">{user.full_name}</h1>
+                <p className="text-xs text-slate-400 mt-0.5">{user.email}</p>
               </div>
 
               <div className="flex items-center justify-center sm:justify-start space-x-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-50 text-brand-800 border border-brand-200">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-950 text-emerald-300 border border-emerald-800">
                   {user.active_role} Account
                 </span>
               </div>
             </div>
 
             {user.organization_name && (
-              <p className="text-xs font-bold text-slate-700 flex items-center justify-center sm:justify-start mt-2">
-                <Building2 className="w-3.5 h-3.5 text-brand-600 mr-1.5" />
+              <p className="text-xs font-bold text-emerald-400 flex items-center justify-center sm:justify-start mt-2">
+                <Building2 className="w-3.5 h-3.5 text-emerald-400 mr-1.5" />
                 <span>{user.organization_name}</span>
               </p>
             )}
@@ -136,13 +136,13 @@ export const ProfilePage: React.FC = () => {
         <div className="mt-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-base font-bold text-slate-900">Personal & Organization Details</h3>
-              <p className="text-xs text-slate-500">Contact number and communication preferences for food coordination</p>
+              <h3 className="text-base font-bold text-white">Personal & Organization Details</h3>
+              <p className="text-xs text-slate-400">Contact number and communication preferences for food coordination</p>
             </div>
             {!isEditing && (
               <button
                 onClick={() => setIsEditing(true)}
-                className="inline-flex items-center space-x-1.5 text-xs font-bold text-brand-700 hover:text-brand-800 bg-brand-50 hover:bg-brand-100 px-3 py-1.5 rounded-xl transition"
+                className="inline-flex items-center space-x-1.5 text-xs font-bold text-emerald-400 hover:text-white bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-800 px-3.5 py-2 rounded-xl transition"
               >
                 <Edit3 className="w-3.5 h-3.5" />
                 <span>Edit Profile</span>
@@ -154,17 +154,17 @@ export const ProfilePage: React.FC = () => {
             <form onSubmit={handleSaveProfile} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Full Name</label>
                   <input
                     type="text"
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
                     Phone Number (Contact / WhatsApp) *
                   </label>
                   <input
@@ -173,36 +173,36 @@ export const ProfilePage: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Organization Name</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Organization Name</label>
                   <input
                     type="text"
                     value={organizationName}
                     onChange={(e) => setOrganizationName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Pickup / Drop Address</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Pickup / Drop Address</label>
                   <input
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                   />
                 </div>
               </div>
 
               {/* Phone Contact & Communication Options */}
-              <div className="p-4 rounded-2xl bg-brand-50/60 border border-brand-200 space-y-3">
-                <h4 className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center">
-                  <Phone className="w-3.5 h-3.5 mr-1.5 text-brand-700" />
+              <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3">
+                <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center">
+                  <Phone className="w-3.5 h-3.5 mr-1.5 text-emerald-400" />
                   <span>Phone Number & Contact Opt-In Settings</span>
                 </h4>
                 <label className="flex items-start space-x-2.5 cursor-pointer">
@@ -210,10 +210,10 @@ export const ProfilePage: React.FC = () => {
                     type="checkbox"
                     checked={phoneContactOptIn}
                     onChange={(e) => setPhoneContactOptIn(e.target.checked)}
-                    className="w-4 h-4 mt-0.5 rounded text-brand-600 focus:ring-brand-500 border-slate-300"
+                    className="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 border-slate-700 bg-slate-950"
                   />
-                  <span className="text-xs text-slate-700 leading-relaxed font-medium">
-                    <strong>Enable Direct Phone Contact:</strong> Share my phone number with verified food partners upon confirmed bookings so we can coordinate arrival, loading bay directions, and gate access.
+                  <span className="text-xs text-slate-300 leading-relaxed font-medium">
+                    <strong className="text-white">Enable Direct Phone Contact:</strong> Share my phone number with verified food partners upon confirmed bookings so we can coordinate arrival, loading bay directions, and gate access.
                   </span>
                 </label>
                 <label className="flex items-start space-x-2.5 cursor-pointer">
@@ -221,10 +221,10 @@ export const ProfilePage: React.FC = () => {
                     type="checkbox"
                     checked={whatsappEnabled}
                     onChange={(e) => setWhatsappEnabled(e.target.checked)}
-                    className="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 border-slate-300"
+                    className="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-emerald-500 border-slate-700 bg-slate-950"
                   />
-                  <span className="text-xs text-slate-700 leading-relaxed font-medium">
-                    <strong>Enable WhatsApp Quick-Messaging:</strong> Allow verified shelter drivers or kitchen coordinators to message me on WhatsApp regarding active pickups.
+                  <span className="text-xs text-slate-300 leading-relaxed font-medium">
+                    <strong className="text-white">Enable WhatsApp Quick-Messaging:</strong> Allow verified shelter drivers or kitchen coordinators to message me on WhatsApp regarding active pickups.
                   </span>
                 </label>
               </div>
@@ -233,14 +233,14 @@ export const ProfilePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsEditing(false)}
-                  className="px-4 py-2 text-xs font-bold text-slate-600 bg-slate-100 rounded-xl hover:bg-slate-200 transition"
+                  className="px-4 py-2 text-xs font-bold text-slate-300 bg-slate-800 rounded-xl hover:bg-slate-700 transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-5 py-2 text-xs font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700 shadow-sm transition"
+                  className="px-5 py-2 text-xs font-bold text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 shadow-md transition"
                 >
                   {isSaving ? 'Saving...' : 'Save Profile Changes'}
                 </button>
@@ -249,50 +249,50 @@ export const ProfilePage: React.FC = () => {
           ) : (
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 rounded-2xl bg-slate-50 space-y-1">
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-1">
                   <p className="text-slate-400 font-semibold uppercase text-[10px]">Email Address</p>
-                  <p className="font-bold text-slate-800">{user.email}</p>
+                  <p className="font-bold text-white">{user.email}</p>
                 </div>
-                <div className="p-4 rounded-2xl bg-slate-50 space-y-1">
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-1">
                   <p className="text-slate-400 font-semibold uppercase text-[10px]">Organization</p>
-                  <p className="font-bold text-slate-800">{user.organization_name || 'Individual'}</p>
+                  <p className="font-bold text-white">{user.organization_name || 'Individual'}</p>
                 </div>
-                <div className="p-4 rounded-2xl bg-slate-50 space-y-1 sm:col-span-2">
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-1 sm:col-span-2">
                   <p className="text-slate-400 font-semibold uppercase text-[10px]">Address</p>
-                  <p className="font-bold text-slate-800">{user.address || 'Bengaluru, Karnataka'}</p>
+                  <p className="font-bold text-white">{user.address || 'Bengaluru, Karnataka'}</p>
                 </div>
               </div>
 
               {/* Prominent Phone Number & Quick Contact Display */}
-              <div className="p-5 rounded-2xl bg-gradient-to-r from-brand-50/70 to-emerald-50/70 border border-brand-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-800">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
                       Primary Contact Number
                     </span>
                     {user.phone ? (
                       user.phone_contact_opt_in !== false ? (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
                           Direct Coordination Active
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-950 text-amber-300 border border-amber-800">
                           Phone Kept Private (Opted Out)
                         </span>
                       )
                     ) : (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-700">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400">
                         Not Configured
                       </span>
                     )}
                   </div>
 
-                  <h4 className="text-lg font-black text-slate-900 mt-1 flex items-center">
-                    <Phone className="w-4 h-4 text-brand-600 mr-2" />
+                  <h4 className="text-lg font-black text-white mt-1 flex items-center">
+                    <Phone className="w-4 h-4 text-emerald-400 mr-2" />
                     <span>{user.phone || 'No phone number added'}</span>
                   </h4>
 
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-400 mt-0.5">
                     {user.phone ? (
                       user.phone_contact_opt_in !== false
                         ? 'Shared with verified donors and receivers on confirmed reservations for pickup coordination.'
@@ -307,7 +307,7 @@ export const ProfilePage: React.FC = () => {
                   <div className="flex items-center space-x-2">
                     <a
                       href={`tel:${cleanPhone}`}
-                      className="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition shadow-sm flex items-center space-x-1.5"
+                      className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-sm flex items-center space-x-1.5"
                     >
                       <Phone className="w-3.5 h-3.5" />
                       <span>Test Call</span>
@@ -317,7 +317,7 @@ export const ProfilePage: React.FC = () => {
                         href={`https://wa.me/${cleanPhone.startsWith('91') ? cleanPhone : cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-sm flex items-center space-x-1.5"
+                        className="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs transition shadow-sm flex items-center space-x-1.5"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>WhatsApp</span>
@@ -327,7 +327,7 @@ export const ProfilePage: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => setIsEditing(true)}
-                    className="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition shadow-sm"
+                    className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-sm"
                   >
                     Add Phone Number
                   </button>
@@ -339,15 +339,15 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       {/* Switch Account Role Card */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card">
+      <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800/90 shadow-2xl">
         <div className="flex items-start justify-between">
           <div>
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 mb-2">
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-950 text-amber-300 border border-amber-800 mb-2">
               <ArrowLeftRight className="w-3.5 h-3.5" />
               <span>Multi-Role Access Control</span>
             </div>
-            <h3 className="text-lg font-black text-slate-900">Switch Account Role</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-lg leading-relaxed">
+            <h3 className="text-lg font-black text-white">Switch Account Role</h3>
+            <p className="text-xs text-slate-400 mt-1 max-w-lg leading-relaxed">
               Food Bridge supports authorized role switching between Food Donor (listing surplus items) and Receiver (booking food for shelters), preserving all your data under one account.
             </p>
           </div>
@@ -356,19 +356,19 @@ export const ProfilePage: React.FC = () => {
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={`p-4 rounded-2xl border-2 transition ${
             activeRole === 'donor'
-              ? 'border-brand-600 bg-brand-50/50'
-              : 'border-slate-200 bg-slate-50'
+              ? 'border-emerald-500 bg-emerald-950/40 text-white'
+              : 'border-slate-800 bg-slate-950/60 text-white'
           }`}>
-            <h4 className="font-bold text-sm text-slate-900">Donor Mode</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Post and manage food donations.</p>
+            <h4 className="font-bold text-sm text-white">Donor Mode</h4>
+            <p className="text-xs text-slate-400 mt-0.5">Post and manage food donations.</p>
             {activeRole === 'donor' ? (
-              <span className="inline-flex items-center mt-3 text-xs font-bold text-brand-700">
+              <span className="inline-flex items-center mt-3 text-xs font-bold text-emerald-400">
                 <Check className="w-4 h-4 mr-1" /> Active Dashboard
               </span>
             ) : (
               <button
                 onClick={() => handleRoleSwitch('donor')}
-                className="mt-3 px-3.5 py-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition"
+                className="mt-3 px-3.5 py-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition"
               >
                 Switch to Donor
               </button>
@@ -377,19 +377,19 @@ export const ProfilePage: React.FC = () => {
 
           <div className={`p-4 rounded-2xl border-2 transition ${
             activeRole === 'receiver'
-              ? 'border-warm-500 bg-warm-50/50'
-              : 'border-slate-200 bg-slate-50'
+              ? 'border-amber-500 bg-amber-950/40 text-white'
+              : 'border-slate-800 bg-slate-950/60 text-white'
           }`}>
-            <h4 className="font-bold text-sm text-slate-900">Receiver Mode</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Discover and reserve available meals.</p>
+            <h4 className="font-bold text-sm text-white">Receiver Mode</h4>
+            <p className="text-xs text-slate-400 mt-0.5">Discover and reserve available meals.</p>
             {activeRole === 'receiver' ? (
-              <span className="inline-flex items-center mt-3 text-xs font-bold text-warm-700">
+              <span className="inline-flex items-center mt-3 text-xs font-bold text-amber-400">
                 <Check className="w-4 h-4 mr-1" /> Active Dashboard
               </span>
             ) : (
               <button
                 onClick={() => handleRoleSwitch('receiver')}
-                className="mt-3 px-3.5 py-1.5 text-xs font-bold text-white bg-warm-500 hover:bg-warm-600 rounded-xl transition"
+                className="mt-3 px-3.5 py-1.5 text-xs font-bold text-white bg-amber-600 hover:bg-amber-700 rounded-xl transition"
               >
                 Switch to Receiver
               </button>
@@ -399,15 +399,15 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       {/* Security & Password */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800/90 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <h3 className="text-base font-bold text-slate-900">Account Security</h3>
-          <p className="text-xs text-slate-500 mt-0.5">Change your password or sign out of active browser sessions.</p>
+          <h3 className="text-base font-bold text-white">Account Security</h3>
+          <p className="text-xs text-slate-400 mt-0.5">Change your password or sign out of active browser sessions.</p>
         </div>
         <div className="flex space-x-3">
           <button
             onClick={() => setChangePasswordModal(true)}
-            className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs font-bold text-slate-700 transition flex items-center space-x-1.5"
+            className="px-4 py-2.5 rounded-xl border border-slate-700 hover:bg-white/10 text-xs font-bold text-slate-200 transition flex items-center space-x-1.5"
           >
             <Lock className="w-3.5 h-3.5" />
             <span>Change Password</span>
@@ -417,7 +417,7 @@ export const ProfilePage: React.FC = () => {
               logout();
               navigate('/');
             }}
-            className="px-4 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-xs font-bold text-red-700 transition flex items-center space-x-1.5"
+            className="px-4 py-2.5 rounded-xl bg-rose-950/60 hover:bg-rose-900/60 border border-rose-800 text-xs font-bold text-rose-300 transition flex items-center space-x-1.5"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Log Out</span>
@@ -427,42 +427,42 @@ export const ProfilePage: React.FC = () => {
 
       {/* Change Password Dialog */}
       {changePasswordModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative">
-            <h3 className="text-base font-bold text-slate-900 mb-1">Change Account Password</h3>
-            <p className="text-xs text-slate-500 mb-4">Enter your current password and your new password.</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in">
+          <div className="bg-slate-900 rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-800 relative text-white">
+            <h3 className="text-base font-bold text-white mb-1">Change Account Password</h3>
+            <p className="text-xs text-slate-400 mb-4">Enter your current password and your new password.</p>
             <form onSubmit={handleChangePassword} className="space-y-3">
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">Current Password</label>
+                <label className="block text-[11px] font-bold text-slate-300 uppercase mb-1">Current Password</label>
                 <input
                   type="password"
                   required
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs"
+                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">New Password</label>
+                <label className="block text-[11px] font-bold text-slate-300 uppercase mb-1">New Password</label>
                 <input
                   type="password"
                   required
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs"
+                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                 />
               </div>
               <div className="flex space-x-2 pt-2">
                 <button
                   type="button"
                   onClick={() => setChangePasswordModal(false)}
-                  className="flex-1 py-2 text-xs font-semibold text-slate-600 bg-slate-100 rounded-xl"
+                  className="flex-1 py-2 text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 rounded-xl transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl"
+                  className="flex-1 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition"
                 >
                   Save Password
                 </button>

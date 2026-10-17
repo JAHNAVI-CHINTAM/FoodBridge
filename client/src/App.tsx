@@ -20,10 +20,10 @@ const ProtectedRoute: React.FC<{
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fafaf9]">
+      <div className="min-h-screen flex items-center justify-center bg-transparent">
         <div className="flex flex-col items-center space-y-3">
-          <div className="w-10 h-10 border-4 border-brand-200 border-t-brand-600 rounded-full animate-spin" />
-          <p className="text-xs font-semibold text-slate-500">Loading Food Bridge...</p>
+          <div className="w-10 h-10 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+          <p className="text-xs font-semibold text-slate-400">Loading Food Bridge...</p>
         </div>
       </div>
     );
@@ -43,52 +43,62 @@ const ProtectedRoute: React.FC<{
 
 function AppRoutes() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#fafaf9]">
-      <Navbar />
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="/register" element={<AuthPage />} />
+    <div className="relative min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+      {/* Universal Fixed Dark-Themed Minimal Food Photography Background */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity pointer-events-none z-0"
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=2400&q=80')` }}
+      />
+      <div className="fixed inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950 pointer-events-none z-0" />
 
-          {/* Donor Dashboard */}
-          <Route
-            path="/donor/*"
-            element={
-              <ProtectedRoute allowedRole="donor">
-                <DonorDashboard />
-              </ProtectedRoute>
-            }
-          />
+      {/* Main Content Layout */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<AuthPage />} />
+            <Route path="/register" element={<AuthPage />} />
 
-          {/* Receiver Dashboard */}
-          <Route
-            path="/receiver/*"
-            element={
-              <ProtectedRoute allowedRole="receiver">
-                <ReceiverDashboard />
-              </ProtectedRoute>
-            }
-          />
+            {/* Donor Dashboard */}
+            <Route
+              path="/donor/*"
+              element={
+                <ProtectedRoute allowedRole="donor">
+                  <DonorDashboard />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Profile Route */}
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <div className="py-8 px-4 sm:px-6 lg:px-8">
-                  <ProfilePage />
-                </div>
-              </ProtectedRoute>
-            }
-          />
+            {/* Receiver Dashboard */}
+            <Route
+              path="/receiver/*"
+              element={
+                <ProtectedRoute allowedRole="receiver">
+                  <ReceiverDashboard />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
-      <Footer />
-      <ToastContainer />
+            {/* Profile Route */}
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <div className="py-8 px-4 sm:px-6 lg:px-8">
+                    <ProfilePage />
+                  </div>
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+        <ToastContainer />
+      </div>
     </div>
   );
 }

@@ -87,17 +87,7 @@ export const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-950 text-slate-100 relative selection:bg-emerald-500 selection:text-white">
-      {/* Persistent Overall Dark Themed Minimal Food Background Texture */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-luminosity pointer-events-none z-0"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=2400&q=80')`
-        }}
-      />
-      {/* Subtle layered dark ambient gradients */}
-      <div className="fixed inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950 pointer-events-none z-0" />
-
+    <div className="flex flex-col min-h-screen bg-transparent text-slate-100 relative selection:bg-emerald-500 selection:text-white">
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-36 z-10">
         {/* Ambient subtle glows */}

@@ -97,7 +97,7 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
     : markers;
 
   return (
-    <div className={`relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-100 ${className}`} style={{ height }}>
+    <div className={`relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950 ${className}`} style={{ height }}>
       {/* Fallback & High-Fidelity Interactive Map Surface */}
       <div
         onClick={handleMapCanvasClick}
@@ -106,21 +106,21 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
         }`}
         style={{
           backgroundImage: `
-            radial-gradient(#94a3b8 1px, transparent 1px),
-            linear-gradient(to right, #f1f5f9 1px, transparent 1px),
-            linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)
+            radial-gradient(#334155 1px, transparent 1px),
+            linear-gradient(to right, rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(30, 41, 59, 0.4) 1px, transparent 1px)
           `,
           backgroundSize: '24px 24px, 48px 48px, 48px 48px',
-          backgroundColor: '#f8fafc',
+          backgroundColor: '#020617',
         }}
       >
         {/* Visual Map Grid & City Landmarks Decor */}
-        <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 opacity-25 pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <path d="M 0 100 Q 250 80 500 200 T 1000 250" fill="none" stroke="#0284c7" strokeWidth="16" />
-            <path d="M 100 0 Q 300 350 450 600" fill="none" stroke="#cbd5e1" strokeWidth="8" />
-            <path d="M 0 350 H 1200" fill="none" stroke="#cbd5e1" strokeWidth="6" />
-            <circle cx="350" cy="220" r="160" fill="#22c55e" opacity="0.12" />
+            <path d="M 100 0 Q 300 350 450 600" fill="none" stroke="#334155" strokeWidth="8" />
+            <path d="M 0 350 H 1200" fill="none" stroke="#334155" strokeWidth="6" />
+            <circle cx="350" cy="220" r="160" fill="#10b981" opacity="0.1" />
           </svg>
         </div>
 
@@ -134,10 +134,10 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
             }}
           >
             <div className="relative flex items-center justify-center">
-              <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-blue-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-600 border-2 border-white shadow-md" />
+              <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-slate-900 shadow-md" />
             </div>
-            <span className="absolute top-5 left-1/2 -translate-x-1/2 bg-blue-700 text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow whitespace-nowrap">
+            <span className="absolute top-5 left-1/2 -translate-x-1/2 bg-emerald-600 text-slate-950 font-black text-[10px] px-1.5 py-0.5 rounded shadow whitespace-nowrap">
               You are here
             </span>
           </div>
@@ -153,10 +153,10 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
             }}
           >
             <div className="flex flex-col items-center">
-              <div className="bg-brand-700 text-white text-[11px] font-bold px-2 py-1 rounded-md shadow-lg whitespace-nowrap mb-1">
+              <div className="bg-emerald-600 text-slate-950 text-[11px] font-black px-2 py-1 rounded-md shadow-lg whitespace-nowrap mb-1">
                 Selected Pickup Point
               </div>
-              <MapPin className="w-8 h-8 text-brand-600 drop-shadow-md fill-brand-500 text-white" />
+              <MapPin className="w-8 h-8 text-emerald-400 drop-shadow-md fill-emerald-500" />
             </div>
           </div>
         )}
@@ -188,13 +188,13 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
               <div className="relative flex flex-col items-center">
                 {/* Marker Tooltip / Info Window on Hover */}
                 {(hoveredMarker?.id === marker.id || singleLocation) && (
-                  <div className="mb-1 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-elevated border border-slate-200 text-slate-800 text-xs font-semibold whitespace-nowrap z-30 animate-in fade-in zoom-in-90 max-w-xs">
-                    <p className="truncate text-brand-800 font-bold">{marker.title}</p>
+                  <div className="mb-1 bg-slate-900/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-2xl border border-slate-700 text-white text-xs font-semibold whitespace-nowrap z-30 animate-in fade-in zoom-in-90 max-w-xs">
+                    <p className="truncate text-emerald-400 font-bold">{marker.title}</p>
                     {marker.address && (
-                      <p className="text-[10px] text-slate-500 truncate font-normal mt-0.5">{marker.address}</p>
+                      <p className="text-[10px] text-slate-400 truncate font-normal mt-0.5">{marker.address}</p>
                     )}
                     {marker.donation && (
-                      <p className="text-[10px] text-warm-600 font-bold mt-0.5">
+                      <p className="text-[10px] text-amber-400 font-bold mt-0.5">
                         {marker.donation.available_quantity} {marker.donation.quantity_unit} available
                       </p>
                     )}
@@ -202,8 +202,8 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
                 )}
 
                 {/* Pin Icon */}
-                <div className="p-1.5 rounded-full bg-brand-600 text-white shadow-lg border-2 border-white group-hover:scale-110 group-hover:bg-brand-700 transition">
-                  <MapPin className="w-5 h-5" />
+                <div className="p-1.5 rounded-full bg-emerald-600 text-slate-950 shadow-lg border-2 border-slate-900 group-hover:scale-110 group-hover:bg-emerald-500 transition">
+                  <MapPin className="w-5 h-5 fill-slate-950" />
                 </div>
               </div>
             </div>
@@ -211,8 +211,8 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
         })}
 
         {/* Map Header Overlay */}
-        <div className="absolute top-3 left-3 z-30 flex items-center space-x-2 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm border border-slate-200/80 text-xs font-medium text-slate-700">
-          <Layers className="w-3.5 h-3.5 text-brand-600" />
+        <div className="absolute top-3 left-3 z-30 flex items-center space-x-2 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-sm border border-slate-700 text-xs font-medium text-slate-200">
+          <Layers className="w-3.5 h-3.5 text-emerald-400" />
           <span>
             {selectable
               ? 'Click anywhere on map to pin pickup location'
@@ -223,7 +223,7 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
         </div>
 
         {/* Status / Service Notice Pill */}
-        <div className="absolute bottom-3 left-3 z-30 flex items-center space-x-1.5 bg-slate-900/80 backdrop-blur-md text-white text-[11px] px-2.5 py-1 rounded-lg">
+        <div className="absolute bottom-3 left-3 z-30 flex items-center space-x-1.5 bg-slate-950/90 backdrop-blur-md text-white text-[11px] px-2.5 py-1 rounded-lg border border-slate-800">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>{isGoogleKeyConfigured ? 'Google Maps Connected' : 'Google Maps Geocoding & Open Data Layer'}</span>
         </div>
@@ -236,7 +236,7 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
               e.stopPropagation();
               setZoomLevel((z) => Math.min(z + 1, 18));
             }}
-            className="p-2 bg-white rounded-lg shadow-card border border-slate-200 text-slate-700 hover:bg-slate-50 transition"
+            className="p-2 bg-slate-900 rounded-lg shadow-card border border-slate-700 text-slate-200 hover:bg-slate-800 transition"
             title="Zoom In"
           >
             <ZoomIn className="w-4 h-4" />
@@ -247,7 +247,7 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
               e.stopPropagation();
               setZoomLevel((z) => Math.max(z - 1, 10));
             }}
-            className="p-2 bg-white rounded-lg shadow-card border border-slate-200 text-slate-700 hover:bg-slate-50 transition"
+            className="p-2 bg-slate-900 rounded-lg shadow-card border border-slate-700 text-slate-200 hover:bg-slate-800 transition"
             title="Zoom Out"
           >
             <ZoomOut className="w-4 h-4" />
@@ -258,7 +258,7 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="p-2 bg-brand-600 text-white rounded-lg shadow-card hover:bg-brand-700 transition flex items-center justify-center"
+              className="p-2 bg-emerald-600 text-slate-950 font-bold rounded-lg shadow-card hover:bg-emerald-500 transition flex items-center justify-center border border-emerald-500"
               title="Open Directions in Google Maps"
             >
               <Navigation className="w-4 h-4" />
@@ -269,16 +269,16 @@ export const GoogleMapViewer: React.FC<GoogleMapViewerProps> = ({
 
       {/* External Directions Link Footer for Single Location */}
       {singleLocation && (
-        <div className="bg-white px-4 py-2.5 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
+        <div className="bg-slate-900/95 px-4 py-2.5 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
           <div className="flex items-center space-x-2 truncate">
-            <MapPin className="w-4 h-4 text-brand-600 flex-shrink-0" />
+            <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0" />
             <span className="truncate">{singleLocation.address}</span>
           </div>
           <a
             href={getDirectionsUrl(singleLocation.lat, singleLocation.lng)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-1.5 font-bold text-brand-700 hover:text-brand-800 bg-brand-50 hover:bg-brand-100 px-3 py-1.5 rounded-lg transition flex-shrink-0 ml-3"
+            className="inline-flex items-center space-x-1.5 font-bold text-emerald-300 hover:text-emerald-200 bg-emerald-950/80 hover:bg-emerald-900 px-3 py-1.5 rounded-lg transition border border-emerald-800/80 flex-shrink-0 ml-3"
           >
             <span>Get Directions</span>
             <ExternalLink className="w-3.5 h-3.5" />

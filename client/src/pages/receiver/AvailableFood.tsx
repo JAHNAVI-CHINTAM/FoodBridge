@@ -144,25 +144,25 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
   }));
 
   return (
-    <div className="space-y-6">
-      {/* 1. DISCOVERY HEADER & SEARCH BAR (Swiggy / Zomato Look) */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-card">
+    <div className="space-y-6 text-white">
+      {/* 1. DISCOVERY HEADER & SEARCH BAR */}
+      <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 border border-slate-800/90 shadow-2xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">Available Food Feed</h1>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <h1 className="text-2xl font-black text-white tracking-tight">Available Food Feed</h1>
+            <p className="text-xs text-slate-400 mt-0.5">
               Discover and book fresh surplus food prepared by nearby donors.
             </p>
           </div>
 
           {/* Grid / Map View Toggle */}
-          <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200 self-start md:self-auto">
+          <div className="flex items-center rounded-xl bg-slate-950/80 p-1 border border-slate-800 self-start md:self-auto">
             <button
               onClick={() => setViewMode('grid')}
               className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
                 viewMode === 'grid'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900'
+                  ? 'bg-slate-800 text-white shadow-sm border border-slate-700/60'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               <Grid className="w-4 h-4" />
@@ -172,8 +172,8 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
               onClick={() => setViewMode('map')}
               className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
                 viewMode === 'map'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900'
+                  ? 'bg-slate-800 text-white shadow-sm border border-slate-700/60'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               <MapIcon className="w-4 h-4" />
@@ -184,17 +184,17 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
 
         {/* Search input */}
         <form onSubmit={handleSearchSubmit} className="relative mb-5">
-          <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
+          <Search className="w-5 h-5 text-slate-500 absolute left-4 top-3.5 pointer-events-none" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by meal name, bread, groceries, or hotel name..."
-            className="w-full pl-12 pr-28 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500 transition"
+            className="w-full pl-12 pr-28 py-3 bg-slate-950/80 border border-slate-800 rounded-2xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition"
           />
           <button
             type="submit"
-            className="absolute right-2 top-2 px-4 py-1.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-bold transition"
+            className="absolute right-2 top-2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white rounded-xl text-xs font-bold transition shadow-md"
           >
             Search
           </button>
@@ -208,8 +208,8 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition ${
                 selectedCategory === cat
-                  ? 'bg-brand-700 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-amber-600 text-white shadow-md'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
               }`}
             >
               {cat}
@@ -218,35 +218,35 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
         </div>
 
         {/* Filter & Sort Bar */}
-        <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="mt-4 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-1.5 text-slate-600">
-              <Filter className="w-3.5 h-3.5 text-slate-400" />
-              <span className="font-semibold">Distance:</span>
+            <div className="flex items-center space-x-1.5 text-slate-300">
+              <Filter className="w-3.5 h-3.5 text-slate-500" />
+              <span className="font-semibold text-slate-400">Distance:</span>
               <select
                 value={maxDistance}
                 onChange={(e) => setMaxDistance(e.target.value)}
-                className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs font-medium focus:outline-none"
+                className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-xs font-medium text-white focus:outline-none"
               >
-                <option value="all">Any Distance</option>
-                <option value="5">Within 5 km</option>
-                <option value="10">Within 10 km</option>
-                <option value="25">Within 25 km</option>
+                <option value="all" className="bg-slate-900 text-white">Any Distance</option>
+                <option value="5" className="bg-slate-900 text-white">Within 5 km</option>
+                <option value="10" className="bg-slate-900 text-white">Within 10 km</option>
+                <option value="25" className="bg-slate-900 text-white">Within 25 km</option>
               </select>
             </div>
           </div>
 
-          <div className="flex items-center space-x-2 text-slate-600">
-            <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
-            <span className="font-semibold">Sort by:</span>
+          <div className="flex items-center space-x-2 text-slate-300">
+            <ArrowUpDown className="w-3.5 h-3.5 text-slate-500" />
+            <span className="font-semibold text-slate-400">Sort by:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs font-medium focus:outline-none"
+              className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-xs font-medium text-white focus:outline-none"
             >
-              <option value="newest">Newest Listed</option>
-              <option value="nearest">Nearest to Me</option>
-              <option value="expiry">Expiring Soonest</option>
+              <option value="newest" className="bg-slate-900 text-white">Newest Listed</option>
+              <option value="nearest" className="bg-slate-900 text-white">Nearest to Me</option>
+              <option value="expiry" className="bg-slate-900 text-white">Expiring Soonest</option>
             </select>
           </div>
         </div>
@@ -254,10 +254,10 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
 
       {/* 2. MAP VIEW */}
       {viewMode === 'map' && (
-        <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-card">
+        <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-6 border border-slate-800/90 shadow-2xl">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="font-bold text-slate-900 text-sm">Interactive Discovery Map</h3>
-            <span className="text-xs text-slate-500">{donations.length} pickup points found</span>
+            <h3 className="font-bold text-white text-sm">Interactive Discovery Map</h3>
+            <span className="text-xs text-slate-400">{donations.length} pickup points found</span>
           </div>
           <GoogleMapViewer
             markers={mapMarkers}
@@ -272,10 +272,10 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
       {viewMode === 'grid' && (
         <div>
           {donations.length === 0 ? (
-            <div className="p-12 text-center rounded-3xl bg-white border border-slate-200/90 shadow-card">
-              <Utensils className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-              <h3 className="text-base font-bold text-slate-800">No matching food donations found</h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+            <div className="p-12 text-center rounded-3xl bg-slate-900/80 backdrop-blur-xl border border-slate-800/90 shadow-2xl">
+              <Utensils className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+              <h3 className="text-base font-bold text-white">No matching food donations found</h3>
+              <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
                 Try widening your distance filter, clearing category selection, or searching for other items.
               </p>
             </div>
@@ -284,15 +284,15 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
               {donations.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-elevated transition-all duration-300 overflow-hidden flex flex-col justify-between group"
+                  className="bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-slate-800/90 shadow-2xl hover:border-slate-700 transition-all duration-300 overflow-hidden flex flex-col justify-between group"
                 >
                   <div>
                     {/* Image with badges & expiry pill */}
-                    <div className="relative h-48 bg-slate-100 overflow-hidden">
+                    <div className="relative h-48 bg-slate-950 overflow-hidden">
                       <img
                         src={item.image_urls[0] || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80'}
                         alt={item.food_name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                       />
                       <div className="absolute top-3 left-3">
                         <CategoryBadge category={item.category} />
@@ -300,11 +300,11 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
                       <div className="absolute top-3 right-3">
                         <StatusBadge status={item.status} />
                       </div>
-                      <div className="absolute bottom-2 left-2 right-2 bg-black/65 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-xs font-semibold flex items-center justify-between">
+                      <div className="absolute bottom-2 left-2 right-2 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-xs font-semibold flex items-center justify-between border border-white/10">
                         <span>
-                          Available: <strong className="text-emerald-300">{item.available_quantity}</strong> {item.quantity_unit}
+                          Available: <strong className="text-emerald-400">{item.available_quantity}</strong> {item.quantity_unit}
                         </span>
-                        <span className="text-amber-300 flex items-center text-[11px]">
+                        <span className="text-amber-400 flex items-center text-[11px]">
                           <Clock className="w-3 h-3 mr-1" />
                           Expires {new Date(item.expiry_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
@@ -313,9 +313,9 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
 
                     {/* Content */}
                     <div className="p-5">
-                      <div className="flex items-center space-x-1.5 text-xs text-slate-500 mb-1.5">
-                        <Building2 className="w-3.5 h-3.5 text-brand-700 flex-shrink-0" />
-                        <span className="font-bold text-slate-800 truncate">
+                      <div className="flex items-center space-x-1.5 text-xs text-slate-400 mb-1.5">
+                        <Building2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                        <span className="font-bold text-white truncate">
                           {item.donor?.organization_name || item.donor?.full_name || 'Donor Kitchen'}
                         </span>
                         {item.distanceKm !== undefined && item.distanceKm !== null && (
@@ -323,16 +323,16 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
                         )}
                       </div>
 
-                      <h3 className="font-black text-slate-900 text-lg line-clamp-1 group-hover:text-brand-700 transition">
+                      <h3 className="font-black text-white text-lg line-clamp-1 group-hover:text-amber-400 transition">
                         {item.food_name}
                       </h3>
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                         {item.description}
                       </p>
 
-                      <div className="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-600 space-y-1">
+                      <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-1">
                         <p className="flex items-center truncate">
-                          <MapPin className="w-3.5 h-3.5 text-brand-600 mr-1.5 flex-shrink-0" />
+                          <MapPin className="w-3.5 h-3.5 text-emerald-400 mr-1.5 flex-shrink-0" />
                           <span className="truncate">{item.pickup_address}</span>
                         </p>
                       </div>
@@ -343,13 +343,13 @@ export const AvailableFood: React.FC<Props> = ({ onBookingSuccess }) => {
                   <div className="p-5 pt-0 flex space-x-2">
                     <button
                       onClick={() => setSelectedDonation(item)}
-                      className="flex-1 py-3 px-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition"
+                      className="flex-1 py-3 px-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition"
                     >
                       View Details
                     </button>
                     <button
                       onClick={() => setSelectedDonation(item)}
-                      className="flex-1 py-3 px-4 rounded-2xl font-extrabold text-xs text-white bg-gradient-to-r from-warm-500 to-orange-600 hover:from-warm-600 hover:to-orange-700 shadow-md shadow-warm-500/20 transition transform hover:-translate-y-0.5"
+                      className="flex-1 py-3 px-4 rounded-2xl font-extrabold text-xs text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-xl shadow-amber-950/40 transition transform hover:-translate-y-0.5"
                     >
                       Book Food
                     </button>

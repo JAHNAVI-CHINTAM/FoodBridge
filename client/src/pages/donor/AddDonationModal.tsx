@@ -141,28 +141,28 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in overflow-y-auto">
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto text-white">
         {/* Modal Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-800">
           <div>
-            <span className="text-[11px] font-bold text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="text-[11px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
               Donor Portal
             </span>
-            <h3 className="text-xl font-black text-slate-900 mt-1">Add Food Donation</h3>
-            <p className="text-xs text-slate-500">Provide details so shelters and receivers can discover and collect your surplus food.</p>
+            <h3 className="text-xl font-black text-white mt-1">Add Food Donation</h3>
+            <p className="text-xs text-slate-400">Provide details so shelters and receivers can discover and collect your surplus food.</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition"
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {errorMsg && (
-          <div className="mt-4 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start space-x-2">
-            <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+          <div className="mt-4 p-3.5 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs flex items-start space-x-2">
+            <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
             <span>{errorMsg}</span>
           </div>
         )}
@@ -171,7 +171,7 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
           {/* Food Name & Category */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                 Food Name / Title *
               </label>
               <input
@@ -180,21 +180,21 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                 value={foodName}
                 onChange={(e) => setFoodName(e.target.value)}
                 placeholder="e.g. Steamed Rice & Dal, Assorted Sandwiches"
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                 Food Category *
               </label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value as FoodCategory)}
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               >
                 {CATEGORIES.map((cat) => (
-                  <option key={cat} value={cat}>
+                  <option key={cat} value={cat} className="bg-slate-900 text-white">
                     {cat}
                   </option>
                 ))}
@@ -205,7 +205,7 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
           {/* Quantity & Units */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                 Total Available Quantity *
               </label>
               <input
@@ -216,21 +216,21 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value === '' ? '' : Number(e.target.value))}
                 placeholder="e.g. 25"
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                 Quantity Unit *
               </label>
               <select
                 value={quantityUnit}
                 onChange={(e) => setQuantityUnit(e.target.value as QuantityUnit)}
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               >
                 {QUANTITY_UNITS.map((unit) => (
-                  <option key={unit} value={unit}>
+                  <option key={unit} value={unit} className="bg-slate-900 text-white">
                     {unit}
                   </option>
                 ))}
@@ -240,7 +240,7 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
 
           {/* Description */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
               Food Description & Contents *
             </label>
             <textarea
@@ -249,13 +249,13 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe ingredients, dietary flags (e.g. 100% Vegetarian), container type, packaging..."
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+              className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
             />
           </div>
 
           {/* Image Selection */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
               Food Image
             </label>
             <div className="flex space-x-2.5 overflow-x-auto pb-2">
@@ -269,12 +269,12 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                   }}
                   className={`relative flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden border-2 transition ${
                     selectedImage === img.url && !customImageUrl
-                      ? 'border-brand-600 ring-2 ring-brand-300'
-                      : 'border-slate-200 opacity-70 hover:opacity-100'
+                      ? 'border-emerald-500 ring-2 ring-emerald-400/40'
+                      : 'border-slate-700 opacity-60 hover:opacity-100'
                   }`}
                 >
                   <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
-                  <span className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-bold py-0.5 text-center truncate">
+                  <span className="absolute bottom-0 inset-x-0 bg-black/70 text-white text-[9px] font-bold py-0.5 text-center truncate">
                     {img.label}
                   </span>
                 </button>
@@ -286,7 +286,7 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                 value={customImageUrl}
                 onChange={(e) => setCustomImageUrl(e.target.value)}
                 placeholder="Or paste an image URL here..."
-                className="flex-1 px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-brand-200"
+                className="flex-1 px-3.5 py-2 bg-slate-800/80 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
             </div>
           </div>
@@ -294,7 +294,7 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
           {/* Time Windows */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center">
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center">
                 <Clock className="w-3.5 h-3.5 mr-1 text-slate-400" />
                 Prepared / Cooked Time
               </label>
@@ -302,13 +302,13 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                 type="datetime-local"
                 value={prepTime}
                 onChange={(e) => setPrepTime(e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 [color-scheme:dark]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center">
-                <Clock className="w-3.5 h-3.5 mr-1 text-warm-600" />
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center">
+                <Clock className="w-3.5 h-3.5 mr-1 text-amber-400" />
                 Estimated Expiry Time *
               </label>
               <input
@@ -316,14 +316,14 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
                 required
                 value={expiryTime}
                 onChange={(e) => setExpiryTime(e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+                className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 [color-scheme:dark]"
               />
             </div>
           </div>
 
           {/* Location Autocomplete & Interactive Pin Selection */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
               Pickup Address & Google Maps Pin *
             </label>
             <LocationAutocomplete
@@ -350,14 +350,14 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
               />
               <p className="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
                 <span>Coordinates: {latitude}, {longitude}</span>
-                <span className="text-brand-700 font-semibold">Click on map to adjust exact gate/bay</span>
+                <span className="text-emerald-400 font-semibold">Click on map to adjust exact gate/bay</span>
               </p>
             </div>
           </div>
 
           {/* Pickup Instructions */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
               Specific Pickup Instructions
             </label>
             <input
@@ -365,21 +365,21 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
               value={pickupInstructions}
               onChange={(e) => setPickupInstructions(e.target.value)}
               placeholder="e.g. Enter through Gate 3 back delivery bay. Ask for Chef Michael."
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500"
+              className="w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
             />
           </div>
 
           {/* Safety Confirmation Checkbox */}
-          <div className="p-4 rounded-2xl bg-brand-50/60 border border-brand-200">
+          <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/60">
             <label className="flex items-start space-x-3 cursor-pointer">
               <input
                 type="checkbox"
                 required
                 checked={foodSafetyConfirmed}
                 onChange={(e) => setFoodSafetyConfirmed(e.target.checked)}
-                className="w-5 h-5 mt-0.5 rounded text-brand-600 focus:ring-brand-500 border-slate-300"
+                className="w-5 h-5 mt-0.5 rounded text-emerald-500 focus:ring-emerald-500 bg-slate-800 border-slate-700"
               />
-              <span className="text-xs text-brand-900 leading-relaxed font-medium">
+              <span className="text-xs text-emerald-200 leading-relaxed font-medium">
                 <strong>Food Safety & Freshness Guarantee:</strong> I certify that this food was prepared under hygienic conditions, has been stored at proper safe temperatures, has not been served/touched by guests, and is completely wholesome for human consumption.
               </span>
             </label>
@@ -390,14 +390,14 @@ export const AddDonationModal: React.FC<Props> = ({ isOpen, onClose, onSuccess }
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-3 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition"
+              className="flex-1 py-3 text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700 rounded-xl transition border border-slate-700"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-2 py-3 px-6 text-xs font-extrabold text-white bg-gradient-to-r from-brand-600 to-emerald-700 hover:from-brand-700 hover:to-emerald-800 shadow-md rounded-xl transition disabled:opacity-60 flex items-center justify-center space-x-2"
+              className="flex-2 py-3 px-6 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-emerald-400 to-amber-400 hover:from-emerald-300 hover:to-amber-300 shadow-md rounded-xl transition disabled:opacity-60 flex items-center justify-center space-x-2"
             >
               <span>{isSubmitting ? 'Publishing Listing...' : 'Submit Food Donation'}</span>
               <Sparkles className="w-4 h-4" />

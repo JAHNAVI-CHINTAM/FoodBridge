@@ -56,11 +56,7 @@ export const Navbar: React.FC = () => {
   const isLanding = location.pathname === '/';
 
   return (
-    <header className={`sticky top-0 z-40 w-full transition-all duration-200 ${
-      isLanding 
-        ? 'bg-slate-950/85 border-b border-slate-800/80 text-white backdrop-blur-xl' 
-        : 'glass-nav border-b border-slate-200/80'
-    }`}>
+    <header className="sticky top-0 z-40 w-full transition-all duration-200 bg-slate-950/85 border-b border-slate-800/80 text-white backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group">
@@ -69,14 +65,14 @@ export const Navbar: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center space-x-1.5">
-              <span className={`text-xl font-extrabold tracking-tight transition ${isLanding ? 'text-white' : 'text-slate-900 group-hover:text-brand-700'}`}>
-                Food<span className={isLanding ? 'text-amber-400' : 'text-warm-500'}>Bridge</span>
+              <span className="text-xl font-extrabold tracking-tight text-white group-hover:text-emerald-400 transition">
+                Food<span className="text-amber-400">Bridge</span>
               </span>
               <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                 Direct
               </span>
             </div>
-            <p className={`text-[11px] font-medium hidden sm:block ${isLanding ? 'text-slate-400' : 'text-slate-500'}`}>Share Food • Spread Hope</p>
+            <p className="text-[11px] font-medium hidden sm:block text-slate-400">Share Food • Spread Hope</p>
           </div>
         </Link>
 
@@ -86,63 +82,39 @@ export const Navbar: React.FC = () => {
             to="/"
             className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
               isCurrentActive('/') 
-                ? isLanding 
-                  ? 'text-emerald-400 bg-white/10' 
-                  : 'text-brand-700 bg-brand-50'
-                : isLanding 
-                  ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
+                ? 'text-emerald-400 bg-white/10' 
+                : 'text-slate-300 hover:text-white hover:bg-white/10'
             }`}
           >
             Home
           </Link>
           <a
             href="/#how-it-works"
-            className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
-              isLanding 
-                ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
-            }`}
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition"
           >
             How It Works
           </a>
           <a
             href="/#available-food"
-            className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
-              isLanding 
-                ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
-            }`}
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition"
           >
             Available Food
           </a>
           <a
             href="/#impact"
-            className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
-              isLanding 
-                ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
-            }`}
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition"
           >
             Our Impact
           </a>
           <a
             href="/#about"
-            className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
-              isLanding 
-                ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
-            }`}
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition"
           >
             About Us
           </a>
           <a
             href="/#contact"
-            className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${
-              isLanding 
-                ? 'text-slate-300 hover:text-white hover:bg-white/10' 
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
-            }`}
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition"
           >
             Contact
           </a>
@@ -155,25 +127,25 @@ export const Navbar: React.FC = () => {
               {/* Role Switcher Pill */}
               <button
                 onClick={handleRoleSwitch}
-                className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-brand-50 hover:text-brand-800 border border-slate-200 transition"
+                className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition"
                 title={`Switch active dashboard to ${activeRole === 'donor' ? 'Receiver' : 'Donor'}`}
               >
-                <ArrowLeftRight className="w-3.5 h-3.5 text-slate-500" />
-                <span className="capitalize text-slate-600 font-bold">{activeRole} View</span>
-                <span className="text-slate-400">|</span>
-                <span className="text-brand-700">Switch to {activeRole === 'donor' ? 'Receiver' : 'Donor'}</span>
+                <ArrowLeftRight className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="capitalize text-slate-200 font-bold">{activeRole} View</span>
+                <span className="text-slate-500">|</span>
+                <span className="text-emerald-400 hover:underline">Switch to {activeRole === 'donor' ? 'Receiver' : 'Donor'}</span>
               </button>
 
               {/* In-App Notifications Bell */}
               <div className="relative" ref={notifRef}>
                 <button
                   onClick={() => setIsNotifOpen(!isNotifOpen)}
-                  className="relative p-2.5 rounded-xl bg-slate-100/80 hover:bg-slate-200/80 text-slate-700 transition"
+                  className="relative p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white transition border border-white/10"
                   aria-label="View notifications"
                 >
                   <Bell className="w-5 h-5" />
                   {unreadCount > 0 && (
-                    <span className="absolute top-1 right-1 w-5 h-5 bg-red-600 text-white text-[11px] font-bold rounded-full flex items-center justify-center ring-2 ring-white animate-pulse">
+                    <span className="absolute top-1 right-1 w-5 h-5 bg-red-600 text-white text-[11px] font-bold rounded-full flex items-center justify-center ring-2 ring-slate-950 animate-pulse">
                       {unreadCount > 9 ? '9+' : unreadCount}
                     </span>
                   )}
@@ -185,32 +157,32 @@ export const Navbar: React.FC = () => {
               <div className="relative" ref={profileRef}>
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  className="flex items-center space-x-2 p-1.5 pl-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-subtle hover:border-brand-300 transition"
+                  className="flex items-center space-x-2 p-1.5 pl-2.5 rounded-2xl bg-white/10 border border-white/20 shadow-subtle hover:bg-white/20 transition text-white"
                 >
                   <img
                     src={user.avatar_url || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user.full_name)}`}
                     alt={user.full_name}
-                    className="w-8 h-8 rounded-full object-cover bg-brand-50 border border-brand-200"
+                    className="w-8 h-8 rounded-full object-cover bg-emerald-950 border border-emerald-700"
                   />
-                  <span className="text-xs font-bold text-slate-800 hidden md:inline truncate max-w-[100px]">
+                  <span className="text-xs font-bold text-white hidden md:inline truncate max-w-[100px]">
                     {user.full_name.split(' ')[0]}
                   </span>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </button>
 
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-elevated border border-slate-200/80 py-2 z-50 animate-in fade-in zoom-in-95">
+                  <div className="absolute right-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-slate-800 py-2 z-50 animate-in fade-in zoom-in-95 text-white">
                     {/* User info snippet */}
-                    <div className="px-4 py-2.5 border-b border-slate-100">
-                      <p className="text-xs font-bold text-slate-900 truncate">{user.full_name}</p>
-                      <p className="text-[11px] text-slate-500 truncate">{user.email}</p>
+                    <div className="px-4 py-2.5 border-b border-slate-800">
+                      <p className="text-xs font-bold text-white truncate">{user.full_name}</p>
+                      <p className="text-[11px] text-slate-400 truncate">{user.email}</p>
                       {user.organization_name && (
-                        <p className="text-[10px] text-brand-700 font-semibold truncate flex items-center mt-1">
+                        <p className="text-[10px] text-emerald-400 font-semibold truncate flex items-center mt-1">
                           <Building className="w-3 h-3 mr-1" />
                           {user.organization_name}
                         </p>
                       )}
-                      <div className="mt-2 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-brand-50 text-brand-800 border border-brand-200">
+                      <div className="mt-2 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-950 text-emerald-300 border border-emerald-800">
                         Active: {activeRole}
                       </div>
                     </div>
@@ -220,17 +192,17 @@ export const Navbar: React.FC = () => {
                       <Link
                         to={activeRole === 'donor' ? '/donor' : '/receiver'}
                         onClick={() => setIsProfileOpen(false)}
-                        className="flex items-center px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+                        className="flex items-center px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition"
                       >
-                        <ShieldCheck className="w-4 h-4 mr-2.5 text-brand-600" />
+                        <ShieldCheck className="w-4 h-4 mr-2.5 text-emerald-400" />
                         Go to {activeRole === 'donor' ? 'Donor' : 'Receiver'} Dashboard
                       </Link>
                       <Link
                         to="/profile"
                         onClick={() => setIsProfileOpen(false)}
-                        className="flex items-center px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+                        className="flex items-center px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition"
                       >
-                        <User className="w-4 h-4 mr-2.5 text-slate-500" />
+                        <User className="w-4 h-4 mr-2.5 text-slate-400" />
                         My Profile & Settings
                       </Link>
                       <button
@@ -238,22 +210,22 @@ export const Navbar: React.FC = () => {
                           setIsProfileOpen(false);
                           handleRoleSwitch();
                         }}
-                        className="w-full flex items-center px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition text-left"
+                        className="w-full flex items-center px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition text-left"
                       >
-                        <ArrowLeftRight className="w-4 h-4 mr-2.5 text-warm-600" />
+                        <ArrowLeftRight className="w-4 h-4 mr-2.5 text-amber-400" />
                         Switch to {activeRole === 'donor' ? 'Receiver' : 'Donor'} Mode
                       </button>
                     </div>
 
                     {/* Logout */}
-                    <div className="pt-1 border-t border-slate-100">
+                    <div className="pt-1 border-t border-slate-800">
                       <button
                         onClick={() => {
                           setIsProfileOpen(false);
                           logout();
                           navigate('/');
                         }}
-                        className="w-full flex items-center px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 transition"
+                        className="w-full flex items-center px-4 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-950/40 hover:text-rose-300 transition"
                       >
                         <LogOut className="w-4 h-4 mr-2.5" />
                         Sign Out
@@ -268,21 +240,13 @@ export const Navbar: React.FC = () => {
               {/* Unauthenticated Quick Links */}
               <Link
                 to="/login"
-                className={`text-xs sm:text-sm font-bold px-3 py-2 rounded-xl transition ${
-                  isLanding 
-                    ? 'text-slate-200 hover:text-white hover:bg-white/10' 
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
-                }`}
+                className="text-xs sm:text-sm font-bold px-3 py-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition"
               >
                 Sign In
               </Link>
               <Link
                 to="/login?role=receiver"
-                className={`hidden sm:inline-flex items-center space-x-1 px-4 py-2.5 rounded-xl text-xs font-bold transition ${
-                  isLanding 
-                    ? 'text-emerald-300 bg-white/10 hover:bg-white/20 border border-white/20' 
-                    : 'text-brand-800 bg-brand-50 hover:bg-brand-100 border border-brand-200'
-                }`}
+                className="hidden sm:inline-flex items-center space-x-1 px-4 py-2.5 rounded-xl text-xs font-bold text-emerald-300 bg-white/10 hover:bg-white/20 border border-white/20 transition"
               >
                 <Search className="w-3.5 h-3.5" />
                 <span>Find Food</span>
@@ -300,7 +264,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition"
+            className="md:hidden p-2 rounded-xl text-slate-200 hover:bg-white/10 transition"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -310,56 +274,56 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 animate-in slide-in-from-top-2">
+        <div className="md:hidden bg-slate-900/95 backdrop-blur-2xl border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 animate-in slide-in-from-top-2 text-white">
           <Link
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             Home
           </Link>
           <a
             href="/#how-it-works"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             How It Works
           </a>
           <a
             href="/#available-food"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             Available Food
           </a>
           <a
             href="/#impact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             Our Impact
           </a>
           <a
             href="/#about"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             About Us
           </a>
           <a
             href="/#contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             Contact
           </a>
 
           {isAuthenticated ? (
-            <div className="pt-3 border-t border-slate-100 space-y-2">
+            <div className="pt-3 border-t border-slate-800 space-y-2">
               <Link
                 to={activeRole === 'donor' ? '/donor' : '/receiver'}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-bold text-brand-700 bg-brand-50"
+                className="block px-3 py-2 rounded-lg text-sm font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-800"
               >
                 Go to {activeRole === 'donor' ? 'Donor' : 'Receiver'} Dashboard
               </Link>
@@ -368,14 +332,14 @@ export const Navbar: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   handleRoleSwitch();
                 }}
-                className="w-full text-left px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                className="w-full text-left px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
               >
                 Switch to {activeRole === 'donor' ? 'Receiver' : 'Donor'} View
               </button>
               <Link
                 to="/profile"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-white/10"
               >
                 My Profile
               </Link>
@@ -385,24 +349,24 @@ export const Navbar: React.FC = () => {
                   logout();
                   navigate('/');
                 }}
-                className="w-full text-left px-3 py-2 rounded-lg text-sm font-semibold text-red-600 hover:bg-red-50"
+                className="w-full text-left px-3 py-2 rounded-lg text-sm font-semibold text-rose-400 hover:bg-rose-950/30"
               >
                 Sign Out
               </button>
             </div>
           ) : (
-            <div className="pt-3 border-t border-slate-100 flex flex-col space-y-2">
+            <div className="pt-3 border-t border-slate-800 flex flex-col space-y-2">
               <Link
                 to="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-2.5 text-center text-sm font-bold text-slate-800 bg-slate-100 rounded-xl"
+                className="w-full py-2.5 text-center text-sm font-bold text-white bg-slate-800 rounded-xl hover:bg-slate-700"
               >
                 Sign In / Register
               </Link>
               <Link
                 to="/login?role=donor"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl"
+                className="w-full py-2.5 text-center text-sm font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-700 rounded-xl shadow-md"
               >
                 Donate Food
               </Link>

@@ -44,46 +44,46 @@ export const ReceiverDashboard: React.FC = () => {
   const historicalBookings = bookings.filter(b => b.booking_status === 'completed' || b.booking_status === 'cancelled' || b.booking_status === 'expired');
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent py-8 px-4 sm:px-6 lg:px-8 text-white relative z-10">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Receiver Banner Header */}
-        <div className="bg-gradient-to-r from-warm-800 via-warm-700 to-orange-800 rounded-3xl p-6 sm:p-8 text-white shadow-elevated relative overflow-hidden">
+        <div className="bg-gradient-to-r from-amber-950/80 via-slate-900/90 to-slate-900/90 rounded-3xl p-6 sm:p-8 text-white border border-amber-800/60 backdrop-blur-xl shadow-2xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <div className="flex items-center space-x-2 text-xs font-bold text-warm-200 uppercase tracking-wider mb-2">
+              <div className="flex items-center space-x-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">
                 <Users className="w-4 h-4" />
                 <span>{user?.organization_name || 'Community Receiver Portal'}</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
                 Hello, {user?.full_name}
               </h1>
-              <p className="text-xs sm:text-sm text-warm-100/90 mt-1 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
                 Connect with local kitchens to rescue fresh meals for shelters, care homes, and people in need.
               </p>
             </div>
 
             <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20">
-              <ShieldCheck className="w-6 h-6 text-emerald-300" />
+              <ShieldCheck className="w-6 h-6 text-emerald-400" />
               <div>
                 <p className="text-xs font-bold text-white">Verified NGO / Shelter Account</p>
-                <p className="text-[11px] text-warm-100">Eligible for immediate food booking</p>
+                <p className="text-[11px] text-slate-300">Eligible for immediate food booking</p>
               </div>
             </div>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="mt-8 pt-6 border-t border-warm-600/60 grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="mt-8 pt-6 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div>
-              <p className="text-xs text-warm-200">Active Reserved Meals</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{activeBookings.length}</p>
+              <p className="text-xs text-slate-400">Active Reserved Meals</p>
+              <p className="text-xl sm:text-2xl font-black text-amber-400 mt-0.5">{activeBookings.length}</p>
             </div>
             <div>
-              <p className="text-xs text-warm-200">Total Bookings Completed</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">{historicalBookings.filter(b => b.booking_status === 'completed').length}</p>
+              <p className="text-xs text-slate-400">Total Bookings Completed</p>
+              <p className="text-xl sm:text-2xl font-black text-emerald-400 mt-0.5">{historicalBookings.filter(b => b.booking_status === 'completed').length}</p>
             </div>
             <div>
-              <p className="text-xs text-warm-200">All-Time Meals Received</p>
-              <p className="text-xl sm:text-2xl font-black mt-0.5">
+              <p className="text-xs text-slate-400">All-Time Meals Received</p>
+              <p className="text-xl sm:text-2xl font-black text-white mt-0.5">
                 {bookings.reduce((sum, b) => sum + Number(b.quantity_reserved), 0)}
               </p>
             </div>
@@ -91,13 +91,13 @@ export const ReceiverDashboard: React.FC = () => {
         </div>
 
         {/* Navigation Tabs (Available Food, My Bookings, History, Profile) */}
-        <div className="flex rounded-2xl bg-white p-1.5 border border-slate-200/90 shadow-sm max-w-2xl">
+        <div className="flex rounded-2xl bg-slate-900/80 backdrop-blur-xl p-1.5 border border-slate-800/90 shadow-2xl max-w-2xl">
           <button
             onClick={() => setActiveTab('available')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'available'
-                ? 'bg-warm-500 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <Search className="w-4 h-4" />
@@ -108,8 +108,8 @@ export const ReceiverDashboard: React.FC = () => {
             onClick={() => setActiveTab('bookings')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'bookings'
-                ? 'bg-warm-500 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <PackageCheck className="w-4 h-4" />
@@ -120,8 +120,8 @@ export const ReceiverDashboard: React.FC = () => {
             onClick={() => setActiveTab('history')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'history'
-                ? 'bg-warm-500 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <History className="w-4 h-4" />
@@ -132,8 +132,8 @@ export const ReceiverDashboard: React.FC = () => {
             onClick={() => setActiveTab('profile')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 ${
               activeTab === 'profile'
-                ? 'bg-warm-500 text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <User className="w-4 h-4" />

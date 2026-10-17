@@ -9,36 +9,36 @@ interface BadgeProps {
 export const StatusBadge: React.FC<BadgeProps> = ({ status, size = 'sm' }) => {
   const normalized = status.toLowerCase();
 
-  let styles = 'bg-slate-100 text-slate-700 border-slate-200';
+  let styles = 'bg-slate-800/90 text-slate-300 border-slate-700';
   let label = status;
 
   switch (normalized) {
     case 'available':
-      styles = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+      styles = 'bg-emerald-950/80 text-emerald-300 border-emerald-800/80';
       label = 'Available';
       break;
     case 'partially_booked':
-      styles = 'bg-amber-50 text-amber-700 border-amber-200';
+      styles = 'bg-amber-950/80 text-amber-300 border-amber-800/80';
       label = 'Partially Booked';
       break;
     case 'booked':
-      styles = 'bg-blue-50 text-blue-700 border-blue-200';
+      styles = 'bg-blue-950/80 text-blue-300 border-blue-800/80';
       label = 'Fully Booked';
       break;
     case 'confirmed':
-      styles = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+      styles = 'bg-emerald-950/80 text-emerald-300 border-emerald-800/80';
       label = 'Confirmed';
       break;
     case 'completed':
-      styles = 'bg-purple-50 text-purple-700 border-purple-200';
+      styles = 'bg-purple-950/80 text-purple-300 border-purple-800/80';
       label = 'Completed';
       break;
     case 'expired':
-      styles = 'bg-slate-100 text-slate-600 border-slate-300';
+      styles = 'bg-slate-800/90 text-slate-400 border-slate-700';
       label = 'Expired';
       break;
     case 'cancelled':
-      styles = 'bg-rose-50 text-rose-700 border-rose-200';
+      styles = 'bg-rose-950/80 text-rose-300 border-rose-800/80';
       label = 'Cancelled';
       break;
   }
@@ -46,7 +46,7 @@ export const StatusBadge: React.FC<BadgeProps> = ({ status, size = 'sm' }) => {
   const sizeClasses = size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm';
 
   return (
-    <span className={`inline-flex items-center font-medium rounded-full border ${styles} ${sizeClasses}`}>
+    <span className={`inline-flex items-center font-semibold rounded-full border backdrop-blur-sm ${styles} ${sizeClasses}`}>
       <span className="w-1.5 h-1.5 rounded-full mr-1.5 bg-current opacity-75 animate-pulse" />
       {label}
     </span>
@@ -55,7 +55,7 @@ export const StatusBadge: React.FC<BadgeProps> = ({ status, size = 'sm' }) => {
 
 export const CategoryBadge: React.FC<{ category: string }> = ({ category }) => {
   return (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200">
+    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-800/90 text-slate-200 border border-slate-700/80 backdrop-blur-sm">
       {category}
     </span>
   );
